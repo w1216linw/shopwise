@@ -1,0 +1,91 @@
+:root {
+
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-200: hsl(0, 0%, 80%);
+
+  --fs-200: .5rem;
+  --fs-300: .75rem;
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2rem;
+  --fs-800: 3rem;
+
+  --fw-bold: 700;
+}
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+#root, #__next {
+  isolation: isolate;
+}
+
+/* project  */
+
+
+/* item list */
+
+.single-item {
+  width: 20rem;
+  height: 30rem;
+}
+
+.item-image {
+  width: 15rem;
+  height: 18rem;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* utility */
+
+.fs-200 {
+  font-size: var(--fs-200);
+}
+
+.fs-700 {
+  font-size: var(--fs-700);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+.flex-group {
+  display: flex;
+}
+
+.space-between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.padding-400 {
+  padding: 1rem;
+}
