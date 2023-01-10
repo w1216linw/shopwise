@@ -1,7 +1,7 @@
 import React from "react";
 import { CartItemType } from "../utility/types";
 import { useSelector, useDispatch } from "react-redux";
-import { increment } from "../features/cart/cartSlice";
+import { addToCart } from "../features/cart/cartSlice";
 
 const ItemList: React.FC<CartItemType> = (item) => {
 
@@ -17,7 +17,7 @@ const ItemList: React.FC<CartItemType> = (item) => {
       </div>
       <div className="| flex-group space-between">
         <p className="item-price | fs-700">${item.price}</p>
-        <button onClick={() => dispatch(increment(item.id))}>Add</button>
+        <button onClick={() => dispatch(addToCart(item))}>Add</button>
       </div>
     </div>
   );
