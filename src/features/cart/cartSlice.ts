@@ -1,18 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { CartItemType } from "../../utility/types";
-import ItemList from "../../components/ItemList";
 
 interface CartState {
   items: CartItemType[];
   quantities: number;
-  total: number;
 }
 
 const initialState: CartState = {
   items: [],
   quantities: 0,
-  total: 0,
 };
 
 export const CartSlice = createSlice({
@@ -20,17 +17,24 @@ export const CartSlice = createSlice({
   initialState,
   reducers: {
     increment: (state, action: PayloadAction<number>) => {
-      console.log(action.payload);
-      // state.items.map((item) => {
-      //   console.log(item.title);
-      // });
+      state.items.map(item => {
+        if(item.id === action.payload){
+          item.quantities += 1;
+        }
+      })
+      state.quantities += 1;
     },
     decrement: (state, action: PayloadAction<number>) => {
       state.items.map((item) => {
         if (item.id === action.payload) {
-          console.log(item.title);
-        }
+          if(item.quantities >= 2)
+            item.quantities -= 1;
+          else {
+            state.items = state.items.filter((item) => item.id !== action.payload);
+          }
+        } 
       });
+      state.quantities -= 1;
     },
     addToCart: (state, action: PayloadAction<CartItemType>) => {
       let inCart = false;
@@ -41,9 +45,16 @@ export const CartSlice = createSlice({
         }
       });
       if (!inCart) state.items.push({ ...action.payload, quantities: 1 });
+      state.quantities += 1;
     },
     deleteItem: (state, action: PayloadAction<number>) => {
-      state.items = state.items.filter((item) => item.id !== action.payload);
+      let itemQuan = 0;
+      state.items = state.items.filter((item) => {
+        if(item.id === action.payload)
+          itemQuan = item.quantities;
+        return item.id !== action.payload });
+      
+        state.quantities -= itemQuan;
     },
   },
 });
