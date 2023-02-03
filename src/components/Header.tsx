@@ -11,7 +11,7 @@ export default function Header({cartToggle, setCartToggle}: props) {
 
   return <header className='header | flex-group space-between padding-400'>
     <FcShop className='fs-700'/>
-    <button onClick={() => setCartToggle(!cartToggle)}><FiShoppingCart /></button>
+    <button className='btn' onClick={() => setCartToggle(!cartToggle)}><FiShoppingCart /></button>
     <Cart cartToggle={cartToggle} setCartToggle={setCartToggle}/>
   </header>
 }

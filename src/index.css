@@ -7,6 +7,9 @@
   --clr-accent-light: hsl(0, 49%, 56%);
   --clr-accent-dark: hsl(0, 62%, 35%);
 
+  --clr-secondary-light: hsl(34, 67%, 55%);
+  --clr-secondary-dark: hsl(34, 85%, 45%);
+
   --clr-neutral-100: hsl(0, 0%, 100%);
   --clr-neutral-200: hsl(0, 0%, 80%);
 
@@ -51,38 +54,53 @@ p, h1, h2, h3, h4, h5, h6 {
 #root, #__next {
   isolation: isolate;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 /* global styles */
-button {
+.btn {
   cursor: pointer;
   border: 0;
-  border-radius: 2rem;
+  border-radius: 5px;
   padding: 0.25rem 1rem;
   transition: background-color 250ms ease;
 }
 
-button[data-color='blue'] {
+.btn[data-color='blue'] {
   background-color: var(--clr-primary-light);
   color: var(--clr-neutral-100);
 }
 
-button[data-color='blue']:hover {
+.btn[data-color='blue']:hover {
   background-color: var(--clr-primary-dark);
 }
 
-button[data-color='red'] {
+.btn[data-color='red'] {
   background-color: var(--clr-accent-light);
   color: var(--clr-neutral-100);
 }
 
-button[data-color='red']:hover {
+.btn[data-color='red']:hover {
   background-color: var(--clr-accent-dark);
+}
+
+.btn[data-color='orange'] {
+  background-color: var(--clr-secondary-light);
+  color: var(--clr-neutral-100);
+}
+
+.btn[data-color='orange']:hover {
+  background-color: var(--clr-secondary-dark);
 }
 
 /* project  */
 
 .header {
-  height: 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: var(--clr-primary-base);
 }
 
@@ -128,20 +146,21 @@ button[data-color='red']:hover {
 
 /* shopping cart */
 .shopping-cart {
-  width: 50%;
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, 1rem);
+  width: 60%;
+  position: fixed;
   top: 4rem;
   bottom: 0;
   right: 0;
   background-color: white;
 }
 
-.shopping-cart::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+.cart_background {
+  position: fixed;
+  inset: 4rem 0 0 0;
   background-color: rgba(0, 0, 0, 0.5);
-  transform: translate(-100%, 0);
 }
 
 .shopping-cart h1 {
@@ -233,7 +252,7 @@ button[data-color='red']:hover {
 }
 
 /* functionality */
-.disable-scroll {
+/* .disable-scroll {
   height: 100vh;
   overflow-y: hidden;
-}
+} */

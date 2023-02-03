@@ -1,6 +1,6 @@
 import React from "react";
 import { CartItemType } from "../utility/types";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cart/cartSlice";
 import { hideLongText } from '../utility/utilFn';
 
@@ -18,7 +18,7 @@ const ItemList: React.FC<CartItemType> = (item) => {
       </div>
       <div className="| flex-group space-between">
         <p className="item-price | fs-700">${item.price}</p>
-        <button data-color='blue' onClick={() => dispatch(addToCart(item))}>Add</button>
+        <button className="btn" data-color='blue' onClick={() => dispatch(addToCart(item))}>Add</button>
       </div>
     </div>
   );

@@ -14,15 +14,15 @@ const CartItem: React.FC<CartItemType> = (cartItem) => {
       <div className="cartItem-info">
         <h3>{cartItem.title}</h3>
         <div className="quantities-btns | flex-group space-evenly">
-          <button onClick={() => dispatch(decrement(cartItem.id))} className="| hidden-border">
-            <AiOutlineMinusSquare className="| fs-500"/>
+          <button onClick={() => dispatch(decrement(cartItem.id))} className=" btn hidden-border">
+            <AiOutlineMinusSquare className="fs-500"/>
           </button>
           <p>{cartItem.quantities}</p>
-          <button onClick={() => dispatch(increment(cartItem.id))} className="| hidden-border">
-            <AiOutlinePlusSquare className="| fs-500"/>
+          <button onClick={() => dispatch(increment(cartItem.id))} className=" btn hidden-border">
+            <AiOutlinePlusSquare className="fs-500"/>
           </button>
         </div>
-        <button data-color='red' onClick={() => dispatch(deleteItem(cartItem.id))}>
+        <button className="btn" data-color='red' onClick={() => dispatch(deleteItem(cartItem.id))}>
           Delete
         </button>
       </div>
