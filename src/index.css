@@ -115,7 +115,7 @@ a {
 
 /* item list */
 .items-container {
-  margin-top: 2rem;
+  margin-top: 6rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;

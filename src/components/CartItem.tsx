@@ -1,7 +1,6 @@
 import React from "react";
 import { CartItemType } from "../utility/types";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
-import { CiSquareRemove } from "react-icons/ci";
 import { increment, decrement, deleteItem } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 

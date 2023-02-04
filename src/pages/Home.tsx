@@ -1,26 +1,22 @@
 import { useState } from "react";
-import { useQuery } from "react-query";
 import { CartItemType } from "../utility/types";
-import getProducts from "../utility/getProducts";
 import ItemList from "../components/ItemList";
 import Header from "../components/Header";
+import { useGetAllProductsQuery } from "../features/productApi/apiSlice";
 
 export default function Home () {
   const [cartToggle, setCartToggle] = useState(false);
 
-  const { data, status, error } = useQuery<CartItemType[]>({
-    queryKey: ["products"],
-    queryFn: getProducts,
-  });
+  const { data, isLoading, isError } = useGetAllProductsQuery(null);
 
-  if (status === "error") return <h2>Error...</h2>;
-  if (status === "loading") return <h2>Loading...</h2>;
+  if (isError) return <h2>Error...</h2>;
+  if (isLoading) return <h2>Loading...</h2>;
 
   return (
-    <main className={cartToggle ? "disable-scroll" : ""}>
+    <main>
       <Header cartToggle={cartToggle} setCartToggle={setCartToggle} />
       <section className="items-container">
-        {data?.map((item) => (
+        {data?.map((item: CartItemType) => (
           <ItemList key={item.id} {...item} />
         ))}
       </section>
