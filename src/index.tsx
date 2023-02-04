@@ -3,9 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
-import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
 import "./index.css";
-import { productApi } from "./features/productApi/apiSlice";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
