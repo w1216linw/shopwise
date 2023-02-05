@@ -1,12 +1,17 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { useNavigate } from "react-router-dom";
+import { getTotal } from "../utility/utilFn";
 
 export default function Checkout() {
 
   const navigate = useNavigate();
 
   const { items } = useSelector((state: RootState) => state.cart);
+
+  const subtotal = getTotal(items);
+  const tax = (subtotal * .1).toFixed(2);
+  const total = (subtotal + +tax).toFixed(2);
 
   const handleSubmit = () => {
     navigate('/checkout/success');
@@ -18,9 +23,9 @@ export default function Checkout() {
         <h1>Checkout</h1>
       </header>
       <section className="checkout-container">
-        <form className="checkout-form">
-          <fieldset className="input-wrapper">
-            <legend>Shipping address</legend>
+        <form className="checkout-form flow" id="checkout-form" onSubmit={() => handleSubmit()}>
+          <div className="input-wrapper">
+            <h3>Shipping address</h3>
             <div className="flex-group">
               <div>
                 <label htmlFor="fName">First Name</label>
@@ -49,9 +54,9 @@ export default function Checkout() {
                 <input id="zip Code" type="text" />
               </div>
             </div>
-          </fieldset>
-          <fieldset className="input-wrapper">
-            <legend>Contact</legend>
+          </div>
+          <div className="input-wrapper">
+            <h3>Contact</h3>
             <div>
               <label htmlFor="Phone">Phone</label>
               <input id="Phone" type="text" />
@@ -60,50 +65,63 @@ export default function Checkout() {
               <label htmlFor="Email">Email</label>
               <input id="Email" type="email" />
             </div>
-          </fieldset>
-          <fieldset>
-            <legend>Payment</legend>
+          </div>
+          <div className="input-wrapper">
+            <h3>Payment</h3>
             <div>
               <label htmlFor="cardName">Name on card</label>
               <input id="cardName" type="text" />
             </div>
             <div>
               <label htmlFor="cardNumber">Card number</label>
-              <input id="cardNumber" type="text" />
+              <input id="cardNumber" type="text" pattern="^[0-9]{16}$"/>
             </div>
             <div className="flex-group">
               <div>
                 <label htmlFor="cardExp">Expired date</label>
-                <input id="cardNumber" type="text" />
+                <input id="cardNumber" type="month" />
               </div>
               <div>
                 <label htmlFor="cvv">CVV</label>
-                <input id="cvv" type="text" />
+                <input id="cvv" type="text" pattern="^[0-9]{3,4}$" required/>
               </div>
             </div>
-          </fieldset>
+          </div>
         </form>
         <section className="order-summary flow">
           <h1>Order Summary</h1>
-          <div>items</div>
-          <div >
-            <input type="text" />
-            <button>Apply</button>
+          <div className="order-items">
+            {
+              items.map(item => (
+                <div className="order-item flex-group space-between">
+                  <img className="order-item-img" src={item.image} alt={item.title} />
+                  <p>Qty: {item.quantities}</p>
+                </div>
+              ))
+            }
+          </div>
+          <div style={{display: 'flex'}}>
+            <input type="text" style={{flexBasis: '100%'}}/>
+            <button className="coupon-btn btn" data-color='blue' >Apply</button>
           </div>
           <div className="flex-group">
-            <p>subtotal:</p>
-            <p>#</p>
+            <p>Subtotal:</p>
+            <p>{subtotal}</p>
           </div>
           <div className="flex-group">
             <p>Shipping:</p>
             <p>Free</p>
           </div>
           <div className="flex-group">
+            <p>Tax:</p>
+            <p>{tax}</p>
+          </div>
+          <div className="flex-group">
             <p>Total:</p>
-            <p>#</p>
+            <p>{total}</p>
           </div>
         </section>
-        <button className="checkout-btn" type="submit" onClick={() => handleSubmit()}>Place order</button>
+        <button className="checkout-btn btn" data-color="orange" form="checkout-form" type="submit">place order</button>
       </section>
     </main>
   );
