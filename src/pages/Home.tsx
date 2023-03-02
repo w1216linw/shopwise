@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { CartItemType } from "../utility/types";
 import ItemList from "../components/ItemList";
-import Header from "../components/Header";
+import Header from "../components/Navbar";
 import { useGetAllProductsQuery } from "../features/productApi/apiSlice";
+import { CartItemType } from "../utility/types";
 
-export default function Home () {
+export default function Home() {
   const [cartToggle, setCartToggle] = useState(false);
 
   const { data, isLoading, isError } = useGetAllProductsQuery(null);

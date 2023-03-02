@@ -1,9 +1,9 @@
-import { RootState } from "../../store/store";
 import { useSelector } from "react-redux";
-import CartItem from "../../components/CartItem";
-import { props } from "../../components/Header";
-import { getTotal } from "../../utility/utilFn";
 import { Link } from "react-router-dom";
+import CartItem from "../../components/CartItem";
+import { props } from "../../components/Navbar";
+import { RootState } from "../../store/store";
+import { getTotal } from "../../utility/utilFn";
 
 export function Cart({ cartToggle, setCartToggle }: props) {
   const { quantities, items } = useSelector((state: RootState) => state.cart);
@@ -38,7 +38,11 @@ export function Cart({ cartToggle, setCartToggle }: props) {
               <p className="fs-500">Total:</p>
               <p>${getTotal(items).toFixed(2)}</p>
             </div>
-            <Link className="btn text-align-center" data-color="orange" to="/checkout">
+            <Link
+              className="btn text-align-center"
+              data-color="orange"
+              to="/checkout"
+            >
               Checkout
             </Link>
           </>

@@ -1,0 +1,56 @@
+@use "../abstracts/" as *;
+@forward "./mixin";
+
+@each $prop, $value in $fontSize {
+  .fs-#{$prop} {
+    font-size: var(--fs-#{$prop});
+  }
+}
+
+@each $prop, $value in $fontFamily {
+  .fs-#{$prop} {
+    font-family: var(--ff-#{$prop});
+  }
+}
+
+@each $prop, $value in $fontWeight {
+  .fs-#{$prop} {
+    font-weight: var(--fw-#{$prop});
+  }
+}
+
+.flex-group {
+  display: flex;
+  gap: var(--gap, 0);
+}
+
+.space-between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.padding-400 {
+  padding: 1rem;
+}
+
+.mt-400 {
+  margin-top: 2rem;
+}
+
+.hidden-border {
+  border: 0;
+  background-color: transparent;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+:where(.flow > * + *:not(:first-child)) {
+  margin-top: var(--flow-gap, 1rem);
+}

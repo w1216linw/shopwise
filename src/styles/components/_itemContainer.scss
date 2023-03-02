@@ -1,0 +1,29 @@
+.items-container {
+  margin-top: 6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.single-item {
+  width: 20rem;
+  height: 30rem;
+  border: 1px solid hsla(0, 0%, 50%, 0.504);
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-image {
+  width: 15rem;
+  height: 18rem;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.item-rate {
+  margin-top: auto;
+}

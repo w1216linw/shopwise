@@ -1,0 +1,67 @@
+@use "./components";
+@use "./pages";
+@use "./utils/" as *;
+@use "./abstracts/" as *;
+
+:root {
+  @include customPropLoop($primary, clr-primary);
+  @include customPropLoop($accent, clr-accent);
+  @include customPropLoop($secondary, clr-secondary);
+  @include customPropLoop($fontFamily, ff);
+  @include customPropLoop($fontSize, fs);
+  @include customPropLoop($fontWeight, fw);
+}
+
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  font-family: var(--ff-base);
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}

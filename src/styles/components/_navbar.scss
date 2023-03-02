@@ -1,0 +1,16 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--clr-primary-base);
+}
+
+.single-cartItem > img {
+  width: 8rem;
+  height: 10rem;
+}
+
+.quantities-btns {
+  width: 10rem;
+}

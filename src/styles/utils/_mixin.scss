@@ -1,0 +1,5 @@
+@mixin customPropLoop($arr, $name) {
+  @each $prop, $value in $arr {
+    --#{$name}-#{$prop}: #{$value};
+  }
+}

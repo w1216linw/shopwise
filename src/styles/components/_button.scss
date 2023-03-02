@@ -1,0 +1,34 @@
+.btn {
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  padding: 0.25rem 1rem;
+  transition: background-color 250ms ease;
+}
+
+.btn[data-color="blue"] {
+  background-color: var(--clr-primary-light);
+  color: var(--clr-neutral-100);
+}
+
+.btn[data-color="blue"]:hover {
+  background-color: var(--clr-primary-dark);
+}
+
+.btn[data-color="red"] {
+  background-color: var(--clr-accent-light);
+  color: var(--clr-neutral-100);
+}
+
+.btn[data-color="red"]:hover {
+  background-color: var(--clr-accent-dark);
+}
+
+.btn[data-color="orange"] {
+  background-color: var(--clr-secondary-light);
+  color: var(--clr-neutral-100);
+}
+
+.btn[data-color="orange"]:hover {
+  background-color: var(--clr-secondary-dark);
+}

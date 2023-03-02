@@ -1,0 +1,39 @@
+// --clr-primary-light: hsl(219, 40%, 56%);
+// --clr-primary-dark: hsl(219, 65%, 47%);
+// --clr-primary-base: hsl(220, 18%, 29%);
+$primary: (
+  light: hsl(219, 40%, 56%),
+  dark: hsl(219, 65%, 47%),
+  base: hsl(220, 18%, 29%),
+);
+
+$accent: (
+  light: hsl(0, 49%, 56%),
+  dark: hsl(0, 62%, 35%),
+);
+
+$secondary: (
+  light: hsl(34, 67%, 55%),
+  dark: hsl(34, 85%, 45%),
+);
+
+$fontSize: (
+  200: 0.5rem,
+  300: 0.75rem,
+  400: 1rem,
+  500: 1.25rem,
+  600: 2rem,
+  700: 3.5rem,
+  800: 7rem,
+);
+
+$fontWeight: (
+  bold: 700,
+);
+
+$fontFamily: (
+  base: (
+    "Open Sans",
+    sans-serif,
+  ),
+);
