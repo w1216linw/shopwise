@@ -66,3 +66,38 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.scroll-wrapper {
+  width: min-content;
+  margin: 0 auto;
+}
+
+.categories-container {
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  max-width: 90rem;
+
+  overflow-x: scroll;
+  overscroll-behavior-inline: contain;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.snap-inline {
+  scroll-snap-type: inline mandatory;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 1rem;
+
+  & > * {
+    scroll-snap-align: start;
+  }
+}
+
+.category {
+  height: 15rem;
+  width: 15rem;
+  background: lightcoral;
+}
