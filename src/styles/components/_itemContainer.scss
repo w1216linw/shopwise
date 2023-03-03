@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "../utils/mixin";
+@use "../abstracts/breakpoints";
+
 .items-container {
   margin-top: 6rem;
   display: flex;
@@ -5,16 +9,18 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  margin-inline: auto;
+  max-width: map-get(breakpoints.$breakpoints, $key: exLarge);
 }
 
 .single-item {
   width: 20rem;
   height: 30rem;
   border: 1px solid hsla(0, 0%, 50%, 0.504);
-  border-radius: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: white;
 }
 
 .item-image {

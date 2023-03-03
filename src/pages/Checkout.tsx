@@ -1,20 +1,19 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
 import { useNavigate } from "react-router-dom";
+import { RootState } from "../store/store";
 import { getTotal } from "../utility/utilFn";
 
 export default function Checkout() {
-
   const navigate = useNavigate();
 
   const { items } = useSelector((state: RootState) => state.cart);
 
   const subtotal = getTotal(items);
-  const tax = (subtotal * .1).toFixed(2);
+  const tax = (subtotal * 0.1).toFixed(2);
   const total = (subtotal + +tax).toFixed(2);
 
   const handleSubmit = () => {
-    navigate('/checkout/success');
+    navigate("/checkout/success");
   };
 
   return (
@@ -23,7 +22,11 @@ export default function Checkout() {
         <h1>Checkout</h1>
       </header>
       <section className="checkout-container">
-        <form className="checkout-form flow" id="checkout-form" onSubmit={() => handleSubmit()}>
+        <form
+          className="checkout-form flow"
+          id="checkout-form"
+          onSubmit={() => handleSubmit()}
+        >
           <div className="input-wrapper">
             <h3>Shipping address</h3>
             <div className="flex-group">
@@ -74,7 +77,7 @@ export default function Checkout() {
             </div>
             <div>
               <label htmlFor="cardNumber">Card number</label>
-              <input id="cardNumber" type="text" pattern="^[0-9]{16}$"/>
+              <input id="cardNumber" type="text" pattern="^[0-9]{16}$" />
             </div>
             <div className="flex-group">
               <div>
@@ -83,7 +86,7 @@ export default function Checkout() {
               </div>
               <div>
                 <label htmlFor="cvv">CVV</label>
-                <input id="cvv" type="text" pattern="^[0-9]{3,4}$" required/>
+                <input id="cvv" type="text" pattern="^[0-9]{3,4}$" required />
               </div>
             </div>
           </div>
@@ -91,18 +94,22 @@ export default function Checkout() {
         <section className="order-summary flow">
           <h1>Order Summary</h1>
           <div className="order-items">
-            {
-              items.map(item => (
-                <div className="order-item flex-group space-between">
-                  <img className="order-item-img" src={item.image} alt={item.title} />
-                  <p>Qty: {item.quantities}</p>
-                </div>
-              ))
-            }
+            {items.map((item) => (
+              <div className="order-item flex-group space-between">
+                <img
+                  className="order-item-img"
+                  src={item.thumbnail}
+                  alt={item.title}
+                />
+                <p>Qty: {item.quantities}</p>
+              </div>
+            ))}
           </div>
-          <div style={{display: 'flex'}}>
-            <input type="text" style={{flexBasis: '100%'}}/>
-            <button className="coupon-btn btn" data-color='blue' >Apply</button>
+          <div style={{ display: "flex" }}>
+            <input type="text" style={{ flexBasis: "100%" }} />
+            <button className="coupon-btn btn" data-color="blue">
+              Apply
+            </button>
           </div>
           <div className="flex-group">
             <p>Subtotal:</p>
@@ -121,7 +128,14 @@ export default function Checkout() {
             <p>{total}</p>
           </div>
         </section>
-        <button className="checkout-btn btn" data-color="orange" form="checkout-form" type="submit">place order</button>
+        <button
+          className="checkout-btn btn"
+          data-color="orange"
+          form="checkout-form"
+          type="submit"
+        >
+          place order
+        </button>
       </section>
     </main>
   );

@@ -9,17 +9,16 @@ const ItemList: React.FC<CartItemType> = (item) => {
 
   return (
     <div className="single-item | padding-400">
-      <img className="item-image" src={item.image} alt={item.image} />
+      <img className="item-image" src={item.images[0]} alt={item.title} />
       <h3 className="item-name">{hideLongText(item.title)}</h3>
       <div className="item-rate | flex-group">
-        <p>
-          rating:{" "}
-          <span className="item-rating | fw-bold">{item.rating.rate}</span>
-        </p>
-        <p className="item-rate-count | fs-200">{item.rating.count}</p>
+        <div className="flex-group" style={{ "--gap": ".5rem" } as any}>
+          rating:
+          <span className="item-rating | fw-bold">{item.rating}</span>
+        </div>
       </div>
       <div className="| flex-group space-between">
-        <p className="item-price | fs-700">${item.price}</p>
+        <p className="item-price | fs-600">${item.price}</p>
         <button
           className="btn"
           data-color="blue"
