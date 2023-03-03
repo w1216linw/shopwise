@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem";
 import { NavBarProps } from "../../components/Navbar";
 import { RootState } from "../../store/store";
-import { getTotal } from "../../utility/utilFn";
+import { getTotal } from "../../utilities/utilFn";
 
 export function Cart({ cartToggle, setCartToggle }: NavBarProps) {
   const { quantities, items } = useSelector((state: RootState) => state.cart);

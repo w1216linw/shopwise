@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../store/store";
-import { getTotal } from "../utility/utilFn";
+import { getTotal } from "../utilities/utilFn";
 
 export default function Checkout() {
   const navigate = useNavigate();
