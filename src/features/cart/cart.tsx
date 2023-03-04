@@ -1,11 +1,15 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem";
-import { NavBarProps } from "../../components/Navbar";
 import { RootState } from "../../store/store";
 import { getTotal } from "../../utilities/utilFn";
 
-export function Cart({ cartToggle, setCartToggle }: NavBarProps) {
+interface CartProps {
+  cartToggle: boolean;
+  setCartToggle: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export function Cart({ cartToggle, setCartToggle }: CartProps) {
   const { quantities, items } = useSelector((state: RootState) => state.cart);
 
   const closeCart = () => {
