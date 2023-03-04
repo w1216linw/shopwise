@@ -1,0 +1,68 @@
+.scroll-wrapper {
+  margin-inline: auto;
+  max-width: 100%;
+  position: relative;
+  padding: 0 2rem;
+}
+
+.categories-container {
+  display: grid;
+  gap: 1rem;
+  padding: 0.25rem;
+  grid-auto-flow: column;
+  height: 100%;
+  overflow-x: scroll;
+  overscroll-behavior-inline: contain;
+
+  &::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 60%);
+    border-radius: 100vw;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: hsl(0, 0%, 80%);
+    border-radius: 100vw;
+  }
+}
+
+.snap-inline {
+  scroll-snap-type: inline mandatory;
+  scroll-behavior: smooth;
+
+  & > * {
+    scroll-snap-align: start;
+  }
+}
+
+.category {
+  padding: 1rem;
+  white-space: nowrap;
+  background: hsl(0, 0%, 80%);
+  text-transform: capitalize;
+}
+
+.scroll-btn {
+  position: absolute;
+  display: grid;
+  place-content: center;
+  align-self: center;
+  border: 0;
+  width: 2.5rem;
+  height: 80%;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  background-color: hsl(0 0 100% / 0.8);
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+}

@@ -1,13 +1,10 @@
+import { useState } from "react";
 import { FcShop } from "react-icons/fc";
 import { FiShoppingCart } from "react-icons/fi";
 import { Cart } from "../features/cart/cart";
 
-export type NavBarProps = {
-  setCartToggle: React.Dispatch<React.SetStateAction<boolean>>;
-  cartToggle: boolean;
-};
-
-export default function NavBar({ cartToggle, setCartToggle }: NavBarProps) {
+const NavBar = () => {
+  const [cartToggle, setCartToggle] = useState(false);
   return (
     <header className="header | flex-group space-between padding-400">
       <FcShop className="fs-600" />
@@ -17,4 +14,6 @@ export default function NavBar({ cartToggle, setCartToggle }: NavBarProps) {
       <Cart cartToggle={cartToggle} setCartToggle={setCartToggle} />
     </header>
   );
-}
+};
+
+export default NavBar;
