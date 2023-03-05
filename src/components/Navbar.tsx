@@ -5,6 +5,7 @@ import { Cart } from "../features/cart/cart";
 
 const NavBar = () => {
   const [cartToggle, setCartToggle] = useState(false);
+
   return (
     <header className="header | flex-group space-between padding-400">
       <Link to="/" className="logo">

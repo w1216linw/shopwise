@@ -1,10 +1,10 @@
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  height: min-content;
   background-color: var(--clr-primary-base);
+  position: sticky;
+  top: 0;
   z-index: 99;
+  margin-bottom: 2rem;
 }
 
 .single-cartItem > img {
