@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { FcShop } from "react-icons/fc";
 import { FiShoppingCart } from "react-icons/fi";
+import { Link } from "react-router-dom";
 import { Cart } from "../features/cart/cart";
 
 const NavBar = () => {
   const [cartToggle, setCartToggle] = useState(false);
   return (
     <header className="header | flex-group space-between padding-400">
-      <FcShop className="fs-600" />
+      <Link to="/" className="logo">
+        ShopWise
+      </Link>
       <button className="btn" onClick={() => setCartToggle(!cartToggle)}>
         <FiShoppingCart />
       </button>

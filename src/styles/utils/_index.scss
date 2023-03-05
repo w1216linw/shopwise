@@ -8,13 +8,13 @@
 }
 
 @each $prop, $value in $fontFamily {
-  .fs-#{$prop} {
+  .ff-#{$prop} {
     font-family: var(--ff-#{$prop});
   }
 }
 
 @each $prop, $value in $fontWeight {
-  .fs-#{$prop} {
+  .fw-#{$prop} {
     font-weight: var(--fw-#{$prop});
   }
 }
