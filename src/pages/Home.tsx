@@ -8,7 +8,6 @@ export default function Home() {
   const { data, isLoading, isError } = useGetAllProductsQuery(null);
   if (isError) return <h2>Error...</h2>;
   if (isLoading) return <h2>Loading...</h2>;
-  console.log(data.products);
   return (
     <Layout>
       <section className="items-container">

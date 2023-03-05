@@ -44,6 +44,15 @@
   white-space: nowrap;
   background: hsl(0, 0%, 80%);
   text-transform: capitalize;
+  cursor: pointer;
+
+  &:is(:hover, :focus) {
+    background: hsl(0, 0%, 80%, 0.4);
+  }
+
+  &.selected {
+    background: hsl(0, 0%, 73%);
+  }
 }
 
 .scroll-btn {
@@ -56,7 +65,7 @@
   height: 80%;
   aspect-ratio: 1;
   border-radius: 1rem;
-  background-color: hsl(0 0% 100% / 0.8);
+  background-color: hsla(0, 0%, 66%, 0.8);
 
   &.left {
     left: 0;

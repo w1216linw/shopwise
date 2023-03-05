@@ -1,8 +1,14 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import { useGetCategoriesQuery } from "../features/productApi/apiSlice";
 
-const Scroller = () => {
+interface ScrollerProps {
+  selected?: string;
+}
+
+const Scroller: React.FC<ScrollerProps> = ({ selected }) => {
+  const navigate = useNavigate();
   const { data, isFetching, isSuccess } = useGetCategoriesQuery(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -15,7 +21,13 @@ const Scroller = () => {
     );
   } else if (isSuccess) {
     body = data.map((cate: string) => (
-      <div className="category" key={cate}>
+      <div
+        className={`category ${selected === cate ? "selected" : ""}`}
+        onClick={() => {
+          navigate(`/category/:${cate}`);
+        }}
+        key={cate}
+      >
         {cate}
       </div>
     ));
