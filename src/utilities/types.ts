@@ -8,4 +8,5 @@ export type CartItemType = {
   thumbnail: string;
   rating: number;
   quantities: number;
+  discountPercentage: number;
 };

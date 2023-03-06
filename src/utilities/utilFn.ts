@@ -22,4 +22,8 @@ const getDay = (): number => {
   return date;
 };
 
-export { hideLongText, getTotal, getDay };
+const calPercentage = (val: number, per: number) => {
+  return [val, Math.round((val / 100) * per)];
+};
+
+export { hideLongText, getTotal, getDay, calPercentage };

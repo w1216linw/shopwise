@@ -33,3 +33,10 @@
   margin-top: auto;
   color: var(--clr-secondary-light);
 }
+
+.item-price {
+  & .__original-price {
+    margin-left: 0.2rem;
+    font-size: 1rem;
+  }
+}

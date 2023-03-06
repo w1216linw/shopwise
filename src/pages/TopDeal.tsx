@@ -9,7 +9,7 @@ const TopDeal = () => {
     <Layout>
       <div className="items-container">
         {items.map((item) => (
-          <ItemList key={item.id} {...item} />
+          <ItemList key={item.id} item={item} discount />
         ))}
       </div>
     </Layout>

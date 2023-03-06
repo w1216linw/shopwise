@@ -15,7 +15,7 @@ export default function Home() {
       <section className="items-container">
         <TopItem />
         {data.products?.map((item: CartItemType) => (
-          <ItemList key={item.id} {...item} />
+          <ItemList key={item.id} item={item} />
         ))}
       </section>
     </Layout>
