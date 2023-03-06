@@ -3,10 +3,14 @@ import ItemList from "../components/ItemList";
 import Layout from "../components/Layout";
 import Scroller from "../components/Scroller";
 import { useGetProductsOfCategoryQuery } from "../features/productApi/apiSlice";
+import { useAppSelector } from "../utilities/hooks";
 import { CartItemType } from "../utilities/types";
+import { findInDeal } from "../utilities/utilFn";
 
 const Category = () => {
   const { name } = useParams();
+  const { items } = useAppSelector((state) => state.topDeals);
+
   let cate = name?.slice(1);
   const { data, isError, isFetching, isSuccess } =
     useGetProductsOfCategoryQuery(cate);
@@ -20,9 +24,13 @@ const Category = () => {
       </div>
     );
   } else if (isSuccess) {
-    body = data.products?.map((item: CartItemType) => (
-      <ItemList key={item.id} {...item} />
-    ));
+    body = data.products?.map((item: CartItemType) =>
+      findInDeal(items, item) === undefined ? (
+        <ItemList key={item.id} item={item} />
+      ) : (
+        <ItemList key={item.id} item={item} discount />
+      )
+    );
   }
 
   return (

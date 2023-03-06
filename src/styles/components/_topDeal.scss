@@ -1,0 +1,18 @@
+.discountCard {
+  display: grid;
+  width: 20rem;
+  height: 30rem;
+  border: 1px solid hsla(0, 0%, 50%, 0.504);
+  justify-content: space-between;
+  background-color: white;
+  padding: 1rem;
+
+  & .__checkLink {
+    margin-inline: auto;
+    align-self: center;
+    width: 10rem;
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: hsl(0, 0%, 90%);
+  }
+}

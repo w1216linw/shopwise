@@ -5,7 +5,7 @@ import { loadDeals } from "../features/topDeal/topDealSlice";
 import { useAppDispatch } from "../utilities/hooks";
 import { getDay } from "../utilities/utilFn";
 
-const TopItem = () => {
+const TopDealCard = () => {
   const { data, isSuccess } = useGetNumberOfProductsQuery({
     number: 3,
     skip: getDay(),
@@ -31,11 +31,13 @@ const TopItem = () => {
               alt={data.products[0].title}
             />
           }
-          <Link to="/topdeal">Check out</Link>
+          <Link to="/topdeal" className="__checkLink">
+            Check out
+          </Link>
         </>
       )}
     </div>
   );
 };
 
-export default TopItem;
+export default TopDealCard;

@@ -26,4 +26,8 @@ const calPercentage = (val: number, per: number) => {
   return [val, Math.round((val / 100) * per)];
 };
 
-export { hideLongText, getTotal, getDay, calPercentage };
+const findInDeal = (items: CartItemType[], item: CartItemType) => {
+  return items.find((elem) => elem.id === item.id);
+};
+
+export { hideLongText, getTotal, getDay, calPercentage, findInDeal };

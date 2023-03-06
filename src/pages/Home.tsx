@@ -1,7 +1,7 @@
 import ItemList from "../components/ItemList";
 import Layout from "../components/Layout";
 import Scroller from "../components/Scroller";
-import TopItem from "../components/TopItems";
+import TopDealCard from "../components/TopDealCard";
 import { useGetAllProductsQuery } from "../features/productApi/apiSlice";
 import { CartItemType } from "../utilities/types";
 
@@ -13,7 +13,7 @@ export default function Home() {
     <Layout>
       <Scroller />
       <section className="items-container">
-        <TopItem />
+        <TopDealCard />
         {data.products?.map((item: CartItemType) => (
           <ItemList key={item.id} item={item} />
         ))}
