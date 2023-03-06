@@ -1,11 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cart/cartSlice";
+import { useAppDispatch } from "../utilities/hooks";
 import { CartItemType } from "../utilities/types";
 import { hideLongText } from "../utilities/utilFn";
 import RateStar from "./RateStar";
 const ItemList: React.FC<CartItemType> = (item) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <div className="single-item | padding-400">

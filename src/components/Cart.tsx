@@ -1,16 +1,16 @@
-import { useSelector } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
-import CartItem from "../../components/CartItem";
-import { RootState } from "../../store/store";
-import { getTotal } from "../../utilities/utilFn";
+import { useAppSelector } from "../utilities/hooks";
+import { getTotal } from "../utilities/utilFn";
+import CartItem from "./CartItem";
 
 interface CartProps {
   cartToggle: boolean;
   setCartToggle: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Cart({ cartToggle, setCartToggle }: CartProps) {
-  const { quantities, items } = useSelector((state: RootState) => state.cart);
+const Cart: React.FC<CartProps> = ({ cartToggle, setCartToggle }) => {
+  const { quantities, items } = useAppSelector((state) => state.cart);
 
   const closeCart = () => {
     setCartToggle(!cartToggle);
@@ -54,4 +54,6 @@ export function Cart({ cartToggle, setCartToggle }: CartProps) {
       </div>
     </>
   );
-}
+};
+
+export default Cart;

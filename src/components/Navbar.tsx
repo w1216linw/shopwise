@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { Cart } from "../features/cart/cart";
+import Cart from "./Cart";
 
 const NavBar = () => {
   const [cartToggle, setCartToggle] = useState(false);

@@ -17,4 +17,9 @@ const getTotal = (items: CartItemType[]) => {
   return total;
 };
 
-export { hideLongText, getTotal };
+const getDay = (): number => {
+  const date = new Date().getDay() * 5;
+  return date;
+};
+
+export { hideLongText, getTotal, getDay };
