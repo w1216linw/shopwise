@@ -1,5 +1,4 @@
 import ItemList from "../components/ItemList";
-import Layout from "../components/Layout";
 import Scroller from "../components/Scroller";
 import TopDealCard from "../components/TopDealCard";
 import { useGetAllProductsQuery } from "../features/productApi/apiSlice";
@@ -14,7 +13,7 @@ export default function Home() {
   if (isError) return <h2>Error...</h2>;
   if (isLoading) return <h2>Loading...</h2>;
   return (
-    <Layout>
+    <>
       <Scroller />
       <section className="items-container">
         {isSuccess && <TopDealCard />}
@@ -22,6 +21,6 @@ export default function Home() {
           <ItemList key={item.id} item={item} />
         ))}
       </section>
-    </Layout>
+    </>
   );
 }

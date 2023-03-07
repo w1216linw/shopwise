@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { addToCart } from "../features/cart/cartSlice";
 import { useAppDispatch } from "../utilities/hooks";
 import { CartItemType } from "../utilities/types";
@@ -11,6 +12,7 @@ interface ItemList {
 }
 
 const ItemList: React.FC<ItemList> = ({ item, discount }) => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   let tempItem = { ...item };
@@ -31,7 +33,7 @@ const ItemList: React.FC<ItemList> = ({ item, discount }) => {
   }
 
   return (
-    <div className="single-item | padding-400">
+    <div className="single-item | padding-400" onClick={() => navigate(`/`)}>
       <img
         className="item-image"
         src={tempItem.images[0]}

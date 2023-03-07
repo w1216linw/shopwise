@@ -1,15 +1,11 @@
-import React from "react";
+import { Outlet } from "react-router-dom";
 import NavBar from "./Navbar";
 
-interface LayoutProps {
-  children: JSX.Element[] | JSX.Element;
-}
-
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout = () => {
   return (
     <>
       <NavBar />
-      {children}
+      <Outlet />
     </>
   );
 };

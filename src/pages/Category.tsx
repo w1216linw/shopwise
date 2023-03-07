@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import ItemList from "../components/ItemList";
-import Layout from "../components/Layout";
 import Scroller from "../components/Scroller";
 import { useGetProductsOfCategoryQuery } from "../features/productApi/apiSlice";
 import { useAppSelector } from "../utilities/hooks";
@@ -34,12 +33,10 @@ const Category = () => {
   }
 
   return (
-    <Layout>
-      <section className="items-container">
-        <Scroller selected={cate} />
-        {body ? body : <p>error...</p>}
-      </section>
-    </Layout>
+    <section className="items-container">
+      <Scroller selected={cate} />
+      {body ? body : <p>error...</p>}
+    </section>
   );
 };
 
