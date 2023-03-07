@@ -31,6 +31,17 @@
   & span {
     text-transform: uppercase;
     background-color: white;
+    font-weight: var(--fw-bold);
     color: var(--clr-accent-light);
   }
+}
+
+.countdown {
+  --gap: 1rem;
+  width: min-content;
+  white-space: nowrap;
+  background-color: var(--clr-accent-light);
+  color: white;
+  margin: 2rem auto;
+  padding-inline: 1rem;
 }

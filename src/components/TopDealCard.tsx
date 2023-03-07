@@ -15,7 +15,7 @@ const TopDealCard = () => {
           {<img src={items[0].thumbnail} alt={items[0].title} />}
           <div className="percentage-off | flex-group">
             <p>Up to {off}% off</p>
-            <span>limited deal</span>
+            <span>limited time</span>
           </div>
           <Link to="/topdeal" className="__checkLink">
             Check out

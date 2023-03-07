@@ -6,7 +6,6 @@ interface TopDealState {
   items: CartItemType[];
   highestOff: number;
 }
-
 const initialState: TopDealState = {
   items: [],
   highestOff: 0,
