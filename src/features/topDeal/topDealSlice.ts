@@ -4,10 +4,12 @@ import { CartItemType } from "../../utilities/types";
 
 interface TopDealState {
   items: CartItemType[];
+  highestOff: number;
 }
 
 const initialState: TopDealState = {
   items: [],
+  highestOff: 0,
 };
 
 export const topDealSlice = createSlice({
@@ -15,7 +17,13 @@ export const topDealSlice = createSlice({
   initialState,
   reducers: {
     loadDeals: (state, action: PayloadAction<CartItemType[]>) => {
-      state.items = action.payload;
+      if (action.payload) {
+        state.items = action.payload;
+        state.highestOff = action?.payload.reduce((acc, elem) => {
+          acc = Math.max(acc, Math.floor(elem.discountPercentage));
+          return acc;
+        }, 0);
+      }
     },
   },
 });

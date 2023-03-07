@@ -16,3 +16,21 @@
     background-color: hsl(0, 0%, 90%);
   }
 }
+
+.percentage-off {
+  --gap: 1rem;
+  height: min-content;
+  white-space: nowrap;
+
+  & p {
+    background-color: var(--clr-accent-light);
+    color: white;
+    padding-inline: 1rem;
+  }
+
+  & span {
+    text-transform: uppercase;
+    background-color: white;
+    color: var(--clr-accent-light);
+  }
+}

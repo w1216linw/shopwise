@@ -4,7 +4,6 @@ import { useAppSelector } from "../utilities/hooks";
 
 const TopDeal = () => {
   const items = useAppSelector((state) => state.topDeals.items);
-  console.log(items);
   return (
     <Layout>
       <div className="items-container">

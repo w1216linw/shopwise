@@ -1,36 +1,22 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useGetNumberOfProductsQuery } from "../features/productApi/apiSlice";
-import { loadDeals } from "../features/topDeal/topDealSlice";
-import { useAppDispatch } from "../utilities/hooks";
-import { getDay } from "../utilities/utilFn";
+import { useAppSelector } from "../utilities/hooks";
 
 const TopDealCard = () => {
-  const { data, isSuccess } = useGetNumberOfProductsQuery({
-    number: 3,
-    skip: getDay(),
-  });
-
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(loadDeals(data?.products));
-  }, [data]);
+  const items = useAppSelector((state) => state.topDeals.items);
+  const off = useAppSelector((state) => state.topDeals.highestOff);
 
   return (
     <div className="discountCard">
-      {" "}
-      {!data ? (
+      {!items ? (
         <p>No Deals Today</p>
       ) : (
         <>
           <h1>Top Deal</h1>
-          {
-            <img
-              src={data.products[0].thumbnail}
-              alt={data.products[0].title}
-            />
-          }
+          {<img src={items[0].thumbnail} alt={items[0].title} />}
+          <div className="percentage-off | flex-group">
+            <p>Up to {off}% off</p>
+            <span>limited deal</span>
+          </div>
           <Link to="/topdeal" className="__checkLink">
             Check out
           </Link>
