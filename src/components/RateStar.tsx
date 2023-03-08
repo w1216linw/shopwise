@@ -21,7 +21,7 @@ const RateStar: React.FC<RateStar> = ({ rate }) => {
     stars.push(<BsStar key={i} />);
   }
 
-  return <div className="flex-group">{stars.map((s) => s)}</div>;
+  return <div className="rating-star flex-group">{stars.map((s) => s)}</div>;
 };
 
 export default RateStar;

@@ -10,9 +10,8 @@ const Category = () => {
   const { name } = useParams();
   const { items } = useAppSelector((state) => state.topDeals);
 
-  let cate = name?.slice(1);
   const { data, isError, isFetching, isSuccess } =
-    useGetProductsOfCategoryQuery(cate);
+    useGetProductsOfCategoryQuery(name);
   let body;
   if (isFetching) {
     body = <div>loading...</div>;
@@ -34,7 +33,7 @@ const Category = () => {
 
   return (
     <section className="items-container">
-      <Scroller selected={cate} />
+      <Scroller selected={name} />
       {body ? body : <p>error...</p>}
     </section>
   );

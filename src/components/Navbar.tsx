@@ -7,7 +7,7 @@ const NavBar = () => {
   const [cartToggle, setCartToggle] = useState(false);
 
   return (
-    <header className="header | flex-group space-between padding-400">
+    <header className="header | flex-group space-between padding-4">
       <Link to="/" className="logo">
         ShopWise
       </Link>

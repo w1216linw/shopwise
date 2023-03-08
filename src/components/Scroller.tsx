@@ -24,7 +24,7 @@ const Scroller: React.FC<ScrollerProps> = ({ selected }) => {
       <div
         className={`category ${selected === cate ? "selected" : ""}`}
         onClick={() => {
-          navigate(`/category/:${cate}`);
+          navigate(`/category/${cate}`);
         }}
         key={cate}
       >

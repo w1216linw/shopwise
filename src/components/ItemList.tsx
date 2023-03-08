@@ -33,7 +33,10 @@ const ItemList: React.FC<ItemList> = ({ item, discount }) => {
   }
 
   return (
-    <div className="single-item | padding-400" onClick={() => navigate(`/`)}>
+    <div
+      className="single-item | padding-4"
+      onClick={() => navigate(`/${tempItem.id}`)}
+    >
       <img
         className="item-image"
         src={tempItem.images[0]}
