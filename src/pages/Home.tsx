@@ -1,8 +1,7 @@
 import CategoriesScroller from "../components/CategoriesScroller";
-import ItemList from "../components/ItemList";
 import TopDealCard from "../components/TopDealCard";
+import WeekItemScroller from "../components/WeekItemScroller";
 import { useGetAllProductsQuery } from "../features/productApi/apiSlice";
-import { CartItemType } from "../utilities/types";
 import useLoadDeal from "../utilities/useLoadDeal";
 
 export default function Home() {
@@ -13,14 +12,16 @@ export default function Home() {
   if (isError) return <h2>Error...</h2>;
   if (isLoading) return <h2>Loading...</h2>;
   return (
-    <>
-      <CategoriesScroller />
-      <section className="items-container">
-        {isSuccess && <TopDealCard />}
-        {data.products?.map((item: CartItemType) => (
-          <ItemList key={item.id} item={item} />
-        ))}
+    <main>
+      <section className="home-section">
+        <div className="__cate-scroller">
+          <CategoriesScroller />
+        </div>
+        <div className="__top-deals">{isSuccess && <TopDealCard />}</div>
+        <div className="__week-deals">
+          <WeekItemScroller />
+        </div>
       </section>
-    </>
+    </main>
   );
 }

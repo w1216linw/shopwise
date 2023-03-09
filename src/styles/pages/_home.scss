@@ -1,0 +1,23 @@
+.home-section {
+  display: grid;
+  grid-template-columns: minmax(1rem, 1fr) repeat(3, minmax(0, 30%)) minmax(
+      1rem,
+      1fr
+    );
+  grid-template-areas:
+    ". cate cate cate ."
+    ". top . . ."
+    ". week week week .";
+
+  & > .__top-deals {
+    grid-area: top;
+  }
+
+  & > .__week-deals {
+    grid-area: week;
+  }
+
+  & > .__cate-scroller {
+    grid-area: cate;
+  }
+}

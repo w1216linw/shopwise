@@ -2,8 +2,7 @@
   margin-inline: auto;
   max-width: 100%;
   position: relative;
-  padding: 0 2rem;
-  margin: 2rem 0;
+  margin-block: 2rem;
 }
 
 .categories-container {
@@ -57,22 +56,22 @@
 }
 
 .scroll-btn {
-  position: absolute;
   display: grid;
   place-content: center;
   align-self: center;
   border: 0;
-  width: 2.5rem;
-  height: 80%;
+  width: 3rem;
   aspect-ratio: 1;
-  border-radius: 1rem;
-  background-color: hsla(0, 0%, 66%, 0.8);
+  font-size: 700;
+  background: none;
+  cursor: pointer;
+  position: absolute;
 
   &.left {
-    left: 0;
+    left: -3rem;
   }
 
   &.right {
-    right: 0;
+    right: -3rem;
   }
 }
