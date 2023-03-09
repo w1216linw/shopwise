@@ -1,5 +1,5 @@
+import CategoriesScroller from "../components/CategoriesScroller";
 import ItemList from "../components/ItemList";
-import Scroller from "../components/Scroller";
 import TopDealCard from "../components/TopDealCard";
 import { useGetAllProductsQuery } from "../features/productApi/apiSlice";
 import { CartItemType } from "../utilities/types";
@@ -14,7 +14,7 @@ export default function Home() {
   if (isLoading) return <h2>Loading...</h2>;
   return (
     <>
-      <Scroller />
+      <CategoriesScroller />
       <section className="items-container">
         {isSuccess && <TopDealCard />}
         {data.products?.map((item: CartItemType) => (
