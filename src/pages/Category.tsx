@@ -29,9 +29,9 @@ const Category = () => {
   }
 
   return (
-    <section className="items-container">
+    <section className="section">
       <CategoriesScroller selected={name} />
-      {body ? body : <p>error...</p>}
+      <div className="items-container">{body ? body : <p>error...</p>}</div>
     </section>
   );
 };
