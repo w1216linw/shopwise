@@ -4,10 +4,12 @@ import { CartItemType } from "../../utilities/types";
 
 interface TopDealState {
   items: CartItemType[];
+  popular: CartItemType[];
   highestOff: number;
 }
 const initialState: TopDealState = {
   items: [],
+  popular: [],
   highestOff: 0,
 };
 
@@ -24,8 +26,13 @@ export const topDealSlice = createSlice({
         }, 0);
       }
     },
+    loadPopular: (state, action: PayloadAction<CartItemType[]>) => {
+      if (action.payload) {
+        state.popular = action.payload;
+      }
+    },
   },
 });
 
-export const { loadDeals } = topDealSlice.actions;
+export const { loadDeals, loadPopular } = topDealSlice.actions;
 export default topDealSlice.reducer;

@@ -1,16 +1,36 @@
+@use "../abstracts/breakpoints" as *;
+@use "../utils/mixin" as *;
+
 .home-section {
   display: grid;
-  grid-template-columns: minmax(1rem, 1fr) repeat(3, minmax(0, 25%)) minmax(
+  grid-template-columns: minmax(1rem, 1fr) repeat(4, minmax(0, 17%)) minmax(
       1rem,
       1fr
     );
   grid-template-areas:
-    ". cate cate cate ."
-    ". top . . ."
-    ". week week week .";
+    ". cate cate cate cate ."
+    ". top top popular popular ."
+    ". week week week week .";
+
+  & > .__ad {
+    grid-area: ad;
+    align-self: center;
+    justify-self: right;
+    display: none;
+
+    & img {
+      object-fit: cover;
+      object-position: bottom;
+      height: 30rem;
+    }
+  }
 
   & > .__top-deals {
     grid-area: top;
+  }
+
+  & > .__popular-deals {
+    grid-area: popular;
   }
 
   & > .__week-deals {
@@ -19,5 +39,18 @@
 
   & > .__cate-scroller {
     grid-area: cate;
+  }
+
+  @include mq(exLarge, min-width) {
+    & {
+      grid-template-areas:
+        ". cate cate cate cate ."
+        ". top popular ad ad ."
+        ". week week week week .";
+
+      & > .__ad {
+        display: block;
+      }
+    }
   }
 }

@@ -1,0 +1,22 @@
+.popularCard {
+  padding: 1rem;
+  width: 20rem;
+  height: 30rem;
+  border: 1px solid hsla(0, 0%, 50%, 0.504);
+  background-color: white;
+  display: grid;
+
+  & > .__img-set {
+    align-self: start;
+    display: grid;
+    place-content: center;
+    gap: 2px;
+    grid-template-columns: repeat(2, 40%);
+
+    & > img {
+      width: 8rem;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+}

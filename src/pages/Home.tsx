@@ -1,10 +1,12 @@
+import ad from "../assets/ad.jpg";
 import CategoriesScroller from "../components/CategoriesScroller";
+import PopularCard from "../components/PopularDealCard";
 import TopDealCard from "../components/TopDealCard";
 import WeekItemScroller from "../components/WeekItemScroller";
 import useLoadDeal from "../utilities/useLoadDeal";
 
 export default function Home() {
-  const isSuccess = useLoadDeal();
+  const [loadTopDeal, loadPopular] = useLoadDeal();
 
   return (
     <main>
@@ -12,7 +14,11 @@ export default function Home() {
         <div className="__cate-scroller">
           <CategoriesScroller />
         </div>
-        <div className="__top-deals">{isSuccess && <TopDealCard />}</div>
+        <div className="__top-deals">{loadTopDeal && <TopDealCard />}</div>
+        <div className="__popular-deals">{loadPopular && <PopularCard />}</div>
+        <div className="__ad">
+          <img src={ad} alt="shop ad" />
+        </div>
         <div className="__week-deals">
           <WeekItemScroller />
         </div>
