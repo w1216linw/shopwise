@@ -1,4 +1,4 @@
-.loader-wrapper {
+.status-wrapper {
   display: grid;
   place-items: center;
   height: 100vh;
@@ -12,6 +12,10 @@
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
+}
+
+.error {
+  font-size: var(--fs-500);
 }
 
 @keyframes spin {

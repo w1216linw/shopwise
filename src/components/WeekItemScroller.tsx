@@ -3,7 +3,7 @@ import { useGetProductBySearchQuery } from "../features/productApi/apiSlice";
 import { CartItemType } from "../utilities/types";
 import ItemList from "./ItemList";
 import Scroller from "./Scroller";
-import Loading from "./status/Loading";
+import Status from "./status/status";
 
 const WeekItemScroller = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const WeekItemScroller = () => {
   });
   let body;
   if (isFetching) {
-    return <Loading />;
+    return <Status status="loader" />;
   } else if (isSuccess) {
     body = data.products.map((item: CartItemType) => (
       <ItemList key={item.id} item={item} />

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import IndicatorButtons from "../components/IndicatorBtn";
 import RateStar from "../components/RateStar";
+import Status from "../components/status/status";
 import { useGetProductQuery } from "../features/productApi/apiSlice";
 import { useAppSelector } from "../utilities/hooks";
 import { calPercentage, findInDeal } from "../utilities/utilFn";
@@ -13,8 +14,6 @@ const ItemDetail = () => {
 
   const [imgIdx, setImgIdx] = useState(1);
 
-  console.log(data);
-
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (e.currentTarget.dataset.lable) {
       setImgIdx(parseInt(e.currentTarget.dataset.lable));
@@ -22,11 +21,7 @@ const ItemDetail = () => {
   };
 
   if (isFetching) {
-    return (
-      <div>
-        <p>loading</p>
-      </div>
-    );
+    return <Status status="loader" />;
   }
 
   let price = <p>${data.price}</p>;

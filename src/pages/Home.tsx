@@ -1,4 +1,5 @@
 import CategoriesScroller from "../components/CategoriesScroller";
+import Status from "../components/status/status";
 import TopDealCard from "../components/TopDealCard";
 import WeekItemScroller from "../components/WeekItemScroller";
 import { useGetAllProductsQuery } from "../features/productApi/apiSlice";
@@ -9,8 +10,8 @@ export default function Home() {
 
   const isSuccess = useLoadDeal();
 
-  if (isError) return <h2>Error...</h2>;
-  if (isLoading) return <h2>Loading...</h2>;
+  if (!isError) return <Status status="error" text="Internal Error" />;
+  if (isLoading) return <Status status="loader" />;
   return (
     <main>
       <section className="home-section">

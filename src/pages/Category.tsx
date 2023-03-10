@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import CategoriesScroller from "../components/CategoriesScroller";
 import ItemList from "../components/ItemList";
+import Status from "../components/status/status";
 import { useGetProductsOfCategoryQuery } from "../features/productApi/apiSlice";
 import { useAppSelector } from "../utilities/hooks";
 import { CartItemType } from "../utilities/types";
@@ -14,13 +15,9 @@ const Category = () => {
     useGetProductsOfCategoryQuery(name);
   let body;
   if (isFetching) {
-    body = <div>loading...</div>;
+    body = <Status status="loader" />;
   } else if (isError) {
-    return (
-      <div>
-        <p>error</p>
-      </div>
-    );
+    return <Status status="error" text="Internal Error" />;
   } else if (isSuccess) {
     body = data.products?.map((item: CartItemType) =>
       findInDeal(items, item) === undefined ? (
