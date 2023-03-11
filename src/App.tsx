@@ -5,6 +5,7 @@ import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import ItemDetail from "./pages/ItemDetail";
 import NotFound from "./pages/NotFound";
+import PopularDeal from "./pages/PopularDeal";
 import Success from "./pages/Success";
 import TopDeal from "./pages/TopDeal";
 
@@ -17,6 +18,7 @@ export default function App() {
           <Route path=":id" element={<ItemDetail />} />
           <Route path="category/:name" element={<Category />} />
           <Route path="topdeal" element={<TopDeal />} />
+          <Route path="populardeal" element={<PopularDeal />} />
         </Route>
         <Route path="/checkout">
           <Route index element={<Checkout />} />

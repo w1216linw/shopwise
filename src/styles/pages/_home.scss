@@ -3,53 +3,70 @@
 
 .home-section {
   display: grid;
-  grid-template-columns: minmax(1rem, 1fr) repeat(4, minmax(0, 17%)) minmax(
-      1rem,
-      1fr
-    );
-  grid-template-areas:
-    ". cate cate cate cate ."
-    ". top top popular popular ."
-    ". week week week week .";
+  gap: 1rem;
+  grid-template-columns:
+    minmax(1rem, 1fr) minmax(0, 80%)
+    minmax(1rem, 1fr);
+
+  & > * {
+    grid-column: 2;
+  }
 
   & > .__ad {
-    grid-area: ad;
-    align-self: center;
-    justify-self: right;
     display: none;
+  }
 
-    & img {
-      object-fit: cover;
-      object-position: bottom;
-      height: 30rem;
+  @include mq(medium, min-width) {
+    grid-template-columns:
+      minmax(1rem, 1fr) repeat(2, minmax(0, 34%))
+      minmax(1rem, 1fr);
+
+    grid-template-areas:
+      ". cate cate ."
+      ". top popular ."
+      ". week week .";
+
+    & > .__top-deals {
+      grid-area: top;
+    }
+
+    & > .__popular-deals {
+      grid-area: popular;
+    }
+
+    & > .__week-deals {
+      grid-area: week;
+    }
+
+    & > .__cate-scroller {
+      grid-area: cate;
     }
   }
 
-  & > .__top-deals {
-    grid-area: top;
-  }
-
-  & > .__popular-deals {
-    grid-area: popular;
-  }
-
-  & > .__week-deals {
-    grid-area: week;
-  }
-
-  & > .__cate-scroller {
-    grid-area: cate;
-  }
-
-  @include mq(exLarge, min-width) {
+  @include mq(large, min-width) {
     & {
+      grid-template-columns:
+        minmax(1rem, 1fr) repeat(2, 20rem) minmax(0, 40%)
+        minmax(1rem, 1fr);
+
       grid-template-areas:
-        ". cate cate cate cate ."
-        ". top popular ad ad ."
-        ". week week week week .";
+        ". cate cate cate ."
+        ". top popular ad ."
+        ". week week week .";
 
       & > .__ad {
+        grid-area: ad;
+        align-self: center;
+        justify-self: right;
         display: block;
+        width: 100%;
+
+        & img {
+          object-fit: cover;
+          object-position: center;
+          height: 30rem;
+          width: 100%;
+        }
       }
     }
   }

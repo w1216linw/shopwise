@@ -18,7 +18,7 @@ const PopularCard = () => {
             {<img src={items[3].thumbnail} alt={items[3].title} />}
           </div>
 
-          <Link to="/topDeal" className="__checkLink">
+          <Link to="/populardeal" className="__checkLink">
             Check out
           </Link>
         </>

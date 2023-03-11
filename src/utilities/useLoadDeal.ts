@@ -2,36 +2,26 @@ import { useEffect, useState } from "react";
 import { useGetNumberOfProductsQuery } from "../features/productApi/apiSlice";
 import { loadDeals, loadPopular } from "../features/topDeal/topDealSlice";
 import { useAppDispatch } from "./hooks";
-import { getDay } from "./utilFn";
 
-const useLoadDeal = () => {
-  const [isLoadTopDeal, setIsLoadTopDeal] = useState(false);
-  const [isLoadPopular, setIsLoadPopular] = useState(false);
+type loadMethod = typeof loadDeals | typeof loadPopular;
+
+const useLoadDeal = (number: number, skip: number, loadMethod: loadMethod) => {
+  const [isSuccess, setIsSuccess] = useState(false);
   const { data } = useGetNumberOfProductsQuery({
-    number: 3,
-    skip: getDay(),
-  });
-
-  const { data: popular } = useGetNumberOfProductsQuery({
-    number: 4,
-    skip: 70,
+    number,
+    skip,
   });
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (data?.products) {
-      dispatch(loadDeals(data.products));
-      setIsLoadTopDeal(true);
-    }
-
-    if (popular?.products) {
-      dispatch(loadPopular(popular.products));
-      setIsLoadPopular(true);
+      dispatch(loadMethod(data.products));
+      setIsSuccess(true);
     }
   }, [data]);
 
-  return [isLoadTopDeal, isLoadPopular];
+  return isSuccess;
 };
 
 export default useLoadDeal;
