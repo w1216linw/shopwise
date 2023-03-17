@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import IndicatorButtons from "../components/IndicatorBtn";
 import RateStar from "../components/RateStar";
 import Status from "../components/status/status";
+import { addToCart } from "../features/cart/cartSlice";
 import { useGetProductQuery } from "../features/productApi/apiSlice";
-import { useAppSelector } from "../utilities/hooks";
+import { useAppDispatch, useAppSelector } from "../utilities/hooks";
 import { calPercentage, findInDeal } from "../utilities/utilFn";
 
 const ItemDetail = () => {
+  const dispatch = useAppDispatch();
   const { id } = useParams();
   const { data, isFetching } = useGetProductQuery(id);
   const items = useAppSelector((state) => state.topDeals.items);
@@ -63,7 +65,11 @@ const ItemDetail = () => {
         <RateStar rate={data.rating} />
         <hr className="my-3" />
         {price}
-        <button className="btn mt-4" data-color="orange">
+        <button
+          className="btn mt-4"
+          data-color="orange"
+          onClick={() => dispatch(addToCart(data))}
+        >
           Add
         </button>
       </div>
