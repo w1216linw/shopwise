@@ -4,29 +4,14 @@ import { useAppSelector } from "../../utilities/hooks";
 import { getTotal } from "../../utilities/utilFn";
 import CartItem from "./CartItem";
 
-interface CartProps {
-  cartToggle: boolean;
-  setCartToggle: React.Dispatch<React.SetStateAction<boolean>>;
-}
+interface CartProps {}
 
-const Cart: React.FC<CartProps> = ({ cartToggle, setCartToggle }) => {
+const Cart: React.FC<CartProps> = () => {
   const { items } = useAppSelector((state) => state.cart);
-
-  const closeCart = () => {
-    setCartToggle(!cartToggle);
-  };
 
   return (
     <>
-      <div
-        onClick={() => closeCart()}
-        className={`${cartToggle ? "cart_background" : "hidden-cart"}`}
-      ></div>
-      <div
-        className={`${
-          cartToggle ? "shopping-cart | padding-400" : "hidden-cart"
-        }`}
-      >
+      <div className="shopping-cart | padding-4">
         <h2 className="text-align-center">Your Cart: </h2>
         {items.length < 1 ? (
           <h1>Cart is empty</h1>

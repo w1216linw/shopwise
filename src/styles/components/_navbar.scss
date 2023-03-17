@@ -8,32 +8,6 @@
   padding: 0.875rem 1rem;
 }
 
-.cart-btn-wrapper {
-  position: relative;
-  cursor: pointer;
-
-  & .__cart-btn {
-    position: relative;
-    border: 0;
-    background-color: transparent;
-    color: white;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  & .quantities {
-    font-size: var(--fs-400);
-    font-weight: var(--fw-bold);
-    color: var(--clr-secondary-light);
-    position: absolute;
-    right: -0.35rem;
-    top: -0.2rem;
-    background-color: var(--clr-primary-base);
-    width: min-content;
-    height: min-content;
-  }
-}
-
 .logo {
   font-family: var(--ff-accent);
   color: hsl(0, 0%, 100%);

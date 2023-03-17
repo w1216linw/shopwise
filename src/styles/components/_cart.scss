@@ -1,16 +1,47 @@
 @use "../utils/mixin";
 
+.cart-btn-wrapper {
+  position: relative;
+  cursor: pointer;
+
+  & .__cart-btn {
+    position: relative;
+    border: 0;
+    background-color: transparent;
+    color: white;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  & .quantities {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-bold);
+    color: var(--clr-secondary-light);
+    position: absolute;
+    right: -0.35rem;
+    top: -0.2rem;
+    background-color: var(--clr-primary-base);
+    width: min-content;
+    height: min-content;
+  }
+
+  &:hover .shopping-cart {
+    scale: 1 1;
+  }
+}
+
 .shopping-cart {
   display: flex;
   flex-direction: column;
   gap: var(--gap, 1rem);
-  width: 60%;
-  max-width: 30rem;
-  position: fixed;
-  top: 4rem;
-  bottom: 0;
+  width: clamp(20rem, 20vw + 5rem, 30rem);
+  height: max-content;
   right: 0;
+  position: absolute;
   background-color: white;
+  scale: 1 0;
+  transition: scale 100ms linear;
+  transform-origin: top;
 }
 
 .single-cartItem > img {
@@ -18,19 +49,9 @@
   height: 10rem;
 }
 
-.cart_background {
-  position: fixed;
-  inset: 4rem 0 0 0;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 .shopping-cart h1 {
   color: var(--clr-accent-dark);
   text-align: center;
-}
-
-.hidden-cart {
-  display: none;
 }
 
 .cartItem-info {
@@ -48,13 +69,4 @@
 .single-cartItem > p {
   width: 5rem;
   text-align: right;
-}
-
-@include mixin.mq(small, max-width) {
-  .shopping-cart {
-    width: 100%;
-  }
-  .cart_background {
-    display: none;
-  }
 }
