@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetCategoriesQuery } from "../features/productApi/apiSlice";
-import Scroller from "./Scroller";
+import Scroller from "./base/Scroller";
 import Status from "./status/status";
 
 interface CategoriesScrollerProps {

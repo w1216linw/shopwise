@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../utilities/hooks";
-import { getTotal } from "../utilities/utilFn";
+import { useAppSelector } from "../../utilities/hooks";
+import { getTotal } from "../../utilities/utilFn";
 import CartItem from "./CartItem";
 
 interface CartProps {
@@ -10,7 +10,7 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ cartToggle, setCartToggle }) => {
-  const { quantities, items } = useAppSelector((state) => state.cart);
+  const { items } = useAppSelector((state) => state.cart);
 
   const closeCart = () => {
     setCartToggle(!cartToggle);
@@ -18,7 +18,6 @@ const Cart: React.FC<CartProps> = ({ cartToggle, setCartToggle }) => {
 
   return (
     <>
-      <div className="quantities">{quantities}</div>
       <div
         onClick={() => closeCart()}
         className={`${cartToggle ? "cart_background" : "hidden-cart"}`}
@@ -34,9 +33,7 @@ const Cart: React.FC<CartProps> = ({ cartToggle, setCartToggle }) => {
         ) : (
           items.map((item) => <CartItem key={item.id} {...item} />)
         )}
-        {items.length < 1 ? (
-          " "
-        ) : (
+        {items.length > 1 && (
           <>
             <div className="total-amount | flex-group space-between mt-400">
               <p className="fs-500">Total:</p>

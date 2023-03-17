@@ -1,8 +1,12 @@
 import React from "react";
 import { AiOutlineMinusSquare, AiOutlinePlusSquare } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { decrement, deleteItem, increment } from "../features/cart/cartSlice";
-import { CartItemType } from "../utilities/types";
+import {
+  decrement,
+  deleteItem,
+  increment,
+} from "../../features/cart/cartSlice";
+import { CartItemType } from "../../utilities/types";
 
 const CartItem: React.FC<CartItemType> = (cartItem) => {
   const dispatch = useDispatch();
