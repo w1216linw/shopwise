@@ -33,14 +33,12 @@ const ItemList: React.FC<ItemList> = ({ item, discount }) => {
   }
 
   return (
-    <div
-      className="single-item | padding-4"
-      onClick={() => navigate(`/${tempItem.id}`)}
-    >
+    <div className="single-item | padding-4">
       <img
         className="item-image"
         src={tempItem.images[0]}
         alt={tempItem.title}
+        onClick={() => navigate(`/${tempItem.id}`)}
       />
       <h3 className="item-name">{tempItem.title}</h3>
       <p>{hideLongText(tempItem.description)}</p>

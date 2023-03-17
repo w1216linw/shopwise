@@ -53,20 +53,20 @@
         ". cate cate cate ."
         ". top popular ad ."
         ". week week week .";
+    }
 
-      & > .__ad {
-        grid-area: ad;
-        align-self: center;
-        justify-self: right;
-        display: block;
+    & > .__ad {
+      grid-area: ad;
+      align-self: center;
+      justify-self: right;
+      display: block;
+      width: 100%;
+
+      & img {
+        object-fit: cover;
+        object-position: center;
+        height: 30rem;
         width: 100%;
-
-        & img {
-          object-fit: cover;
-          object-position: center;
-          height: 30rem;
-          width: 100%;
-        }
       }
     }
   }
