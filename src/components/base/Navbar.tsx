@@ -12,7 +12,7 @@ const NavBar = () => {
         ShopWise
       </Link>
       <div className="cart-btn-wrapper">
-        <button className="__cart-btn">
+        <button className="__cart-btn | hidden-border-btn">
           <CiShoppingCart size={35} />
         </button>
         <div className="quantities">{quantities}</div>

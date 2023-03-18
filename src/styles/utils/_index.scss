@@ -42,13 +42,19 @@
   margin-block: 1rem;
 }
 
+.ms-3 {
+  margin-left: 1rem;
+}
+
 .mt-4 {
   margin-top: 2rem;
 }
 
-.hidden-border {
+.hidden-border-btn {
   border: 0;
+  padding: 0;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .text-align-center {

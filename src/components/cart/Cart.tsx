@@ -18,18 +18,18 @@ const Cart: React.FC<CartProps> = () => {
         ) : (
           items.map((item) => <CartItem key={item.id} {...item} />)
         )}
-        {items.length > 1 && (
+        {items.length >= 1 && (
           <>
-            <div className="total-amount | flex-group space-between mt-400">
-              <p className="fs-500">Total:</p>
-              <p>${getTotal(items).toFixed(2)}</p>
+            <div className="total-amount | flex-group space-between">
+              <p className="fs-500">Subtotal:</p>
+              <p className="ms-3">${getTotal(items).toFixed(2)}</p>
             </div>
             <Link
               className="btn text-align-center"
               data-color="orange"
               to="/checkout"
             >
-              Checkout
+              Go To Cart
             </Link>
           </>
         )}
