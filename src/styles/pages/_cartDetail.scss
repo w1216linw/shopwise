@@ -1,0 +1,46 @@
+.cart-detail {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding: 2rem;
+}
+
+.shopping-cart-detail {
+  //header
+  & header {
+    position: relative;
+    //price tag
+    & span {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  & hr {
+    margin-top: 1rem;
+    background-color: white;
+    height: 3px;
+  }
+
+  & .btn {
+    display: block;
+    width: 20rem;
+    margin: 0 auto;
+  }
+}
+
+.cart-item-detail {
+  --gap: 3rem;
+  justify-content: space-between;
+
+  & img {
+    max-width: 10rem;
+    object-fit: cover;
+    border: 2px solid black;
+  }
+
+  & .__info {
+    display: grid;
+    place-items: start;
+  }
+}

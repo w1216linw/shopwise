@@ -32,7 +32,8 @@
   place-items: center;
   gap: var(--gap, 1rem);
   width: clamp(12rem, 15vw + 5rem, 20rem);
-  height: 80vh;
+  height: max-content;
+  max-height: 80vh;
   right: 0;
   position: absolute;
   background-color: white;
@@ -54,9 +55,10 @@
   text-align: center;
 }
 
-.quantity-info {
+.quantity-control {
   --gap: 0.875rem;
   justify-content: center;
+  align-items: center;
 }
 
 .cartItem-info > button {

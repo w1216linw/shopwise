@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../utilities/hooks";
 import { getTotal } from "../../utilities/utilFn";
-import CartItem from "./CartItem";
+import CartItem from "./CartItemPreview";
 
 interface CartProps {}
 
@@ -14,7 +14,7 @@ const Cart: React.FC<CartProps> = () => {
       <div className="shopping-cart | padding-4">
         <h2 className="text-align-center">Your Cart: </h2>
         {items.length < 1 ? (
-          <h1>Cart is empty</h1>
+          <h1>Empty</h1>
         ) : (
           items.map((item) => <CartItem key={item.id} {...item} />)
         )}
@@ -27,7 +27,7 @@ const Cart: React.FC<CartProps> = () => {
             <Link
               className="btn text-align-center"
               data-color="orange"
-              to="/checkout"
+              to="/cart"
             >
               Go To Cart
             </Link>

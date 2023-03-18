@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./components/base/Layout";
+import CartDetail from "./pages/CartDetail";
 import Category from "./pages/Category";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="category/:name" element={<Category />} />
           <Route path="topdeal" element={<TopDeal />} />
           <Route path="populardeal" element={<PopularDeal />} />
+          <Route path="cart" element={<CartDetail />} />
         </Route>
         <Route path="/checkout">
           <Route index element={<Checkout />} />
