@@ -105,7 +105,7 @@ export default function Checkout() {
               </div>
             ))}
           </div>
-          <div style={{ display: "flex" }}>
+          <div className="my-3">
             <input type="text" style={{ flexBasis: "100%" }} />
             <button className="coupon-btn btn" data-color="blue">
               Apply
