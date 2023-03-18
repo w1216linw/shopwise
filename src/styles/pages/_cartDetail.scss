@@ -33,13 +33,18 @@
   --gap: 3rem;
   justify-content: space-between;
 
-  & img {
-    max-width: 10rem;
-    object-fit: cover;
-    border: 2px solid black;
+  & .__img {
+    width: 15rem;
+
+    & img {
+      width: 10rem;
+      height: 10rem;
+      object-fit: cover;
+    }
   }
 
   & .__info {
+    width: 100%;
     display: grid;
     place-items: start;
   }

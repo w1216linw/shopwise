@@ -1,11 +1,8 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { CartItemType } from "../../utilities/types";
 import QuantityGroup from "./QuantityGroup";
 
 const CartItemDetailed: React.FC<CartItemType> = (cartItem) => {
-  const dispatch = useDispatch();
-
   return (
     <div className="cart-item-detail | my-3 flex-group">
       <div className="__img">
