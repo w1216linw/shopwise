@@ -1,18 +1,22 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../features/cart/cartSlice";
 import { RootState } from "../store/store";
+import { useAppDispatch } from "../utilities/hooks";
 import { getTotal } from "../utilities/utilFn";
 
 export default function Checkout() {
   const navigate = useNavigate();
 
   const { items } = useSelector((state: RootState) => state.cart);
+  const dispatch = useAppDispatch();
 
   const subtotal = getTotal(items);
   const tax = (subtotal * 0.1).toFixed(2);
   const total = (subtotal + +tax).toFixed(2);
 
   const handleSubmit = () => {
+    dispatch(clearCart());
     navigate("/checkout/success");
   };
 
