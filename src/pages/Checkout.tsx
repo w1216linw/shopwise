@@ -1,24 +1,45 @@
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { clearCart } from "../features/cart/cartSlice";
-import { RootState } from "../store/store";
-import { useAppDispatch } from "../utilities/hooks";
-import { getTotal } from "../utilities/utilFn";
+import { addCoupon, clearCart } from "../features/cart/cartSlice";
+import { useAppDispatch, useAppSelector } from "../utilities/hooks";
+
+interface coupons {
+  [firstorder: string]: number;
+}
+
+const coupons: coupons = {
+  firstorder: 20,
+};
 
 export default function Checkout() {
   const navigate = useNavigate();
 
-  const { items } = useSelector((state: RootState) => state.cart);
+  const [couponEntered, setCouponEntered] = useState("");
+  const { items, subtotal, coupon } = useAppSelector((state) => state.cart);
+  const [total, setTotal] = useState(0);
   const dispatch = useAppDispatch();
 
-  const subtotal = getTotal(items);
-  const tax = (subtotal * 0.1).toFixed(2);
-  const total = (subtotal + +tax).toFixed(2);
+  const tax = subtotal * 0.1;
 
   const handleSubmit = () => {
     dispatch(clearCart());
     navigate("/checkout/success");
   };
+
+  const handleAddCoupon = () => {
+    if (couponEntered in coupons) {
+      if (couponEntered !== coupon.title) {
+        dispatch(
+          addCoupon({ title: couponEntered, off: coupons[couponEntered] })
+        );
+        setTotal(total - coupons[couponEntered]);
+      }
+    }
+  };
+
+  useEffect(() => {
+    setTotal(subtotal + tax);
+  }, []);
 
   return (
     <main className="checkout">
@@ -99,7 +120,10 @@ export default function Checkout() {
           <h1>Order Summary</h1>
           <div className="order-items">
             {items.map((item) => (
-              <div className="order-item flex-group space-between">
+              <div
+                key={item.id}
+                className="order-item flex-group space-between"
+              >
                 <img
                   className="order-item-img"
                   src={item.thumbnail}
@@ -110,14 +134,23 @@ export default function Checkout() {
             ))}
           </div>
           <div className="my-3">
-            <input type="text" style={{ flexBasis: "100%" }} />
-            <button className="coupon-btn btn" data-color="blue">
+            <input
+              type="text"
+              style={{ flexBasis: "100%" }}
+              value={couponEntered}
+              onChange={(e) => setCouponEntered(e.currentTarget.value)}
+            />
+            <button
+              className="coupon-btn btn"
+              data-color="blue"
+              onClick={handleAddCoupon}
+            >
               Apply
             </button>
           </div>
           <div className="flex-group">
             <p>Subtotal:</p>
-            <p>{subtotal}</p>
+            <p>{subtotal.toFixed(2)}</p>
           </div>
           <div className="flex-group">
             <p>Shipping:</p>
@@ -125,11 +158,11 @@ export default function Checkout() {
           </div>
           <div className="flex-group">
             <p>Tax:</p>
-            <p>{tax}</p>
+            <p>{tax.toFixed(2)}</p>
           </div>
           <div className="flex-group">
             <p>Total:</p>
-            <p>{total}</p>
+            <p>{total.toFixed(2)}</p>
           </div>
         </section>
         <button

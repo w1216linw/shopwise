@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../utilities/hooks";
-import { getTotal } from "../../utilities/utilFn";
 import CartItem from "./CartItemPreview";
 
 interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
-  const { items } = useAppSelector((state) => state.cart);
-
+  const { items, subtotal } = useAppSelector((state) => state.cart);
   return (
     <>
       <div className="shopping-cart | padding-4">
@@ -22,7 +20,7 @@ const Cart: React.FC<CartProps> = () => {
           <>
             <div className="total-amount | flex-group space-between">
               <p className="fs-500">Subtotal:</p>
-              <p className="ms-3">${getTotal(items).toFixed(2)}</p>
+              <p className="ms-3">${subtotal.toFixed(2)}</p>
             </div>
             <Link
               className="btn text-align-center"

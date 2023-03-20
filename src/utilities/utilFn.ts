@@ -8,7 +8,7 @@ const hideLongText = (title: string): string => {
   return title;
 };
 
-const getTotal = (items: CartItemType[]) => {
+const getSubtotal = (items: CartItemType[]) => {
   let total = items.reduce((acc, item) => {
     acc += item.price * item.quantities;
     return acc;
@@ -30,4 +30,4 @@ const findInDeal = (items: CartItemType[], item: CartItemType) => {
   return items.find((elem) => elem.id === item.id);
 };
 
-export { hideLongText, getTotal, getDay, calPercentage, findInDeal };
+export { hideLongText, getSubtotal, getDay, calPercentage, findInDeal };

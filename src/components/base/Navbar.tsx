@@ -1,4 +1,4 @@
-import { CiShoppingCart } from "react-icons/ci";
+import { BsCart2 } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../utilities/hooks";
 import Cart from "../cart/Cart";
@@ -17,7 +17,7 @@ const NavBar = () => {
           className="__cart-btn | hidden-border-btn"
           onClick={() => navigate("/cart")}
         >
-          <CiShoppingCart size={35} />
+          <BsCart2 size="35" />
         </button>
         <div className="quantities">{quantities}</div>
         <Cart />

@@ -1,11 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import CartItemDetailed from "../components/cart/CartItemDetailed";
 import { useAppSelector } from "../utilities/hooks";
-import { getTotal } from "../utilities/utilFn";
 
 const CartDetail = () => {
   const navigate = useNavigate();
-  const { quantities, items } = useAppSelector((state) => state.cart);
+  const { items, subtotal } = useAppSelector((state) => state.cart);
 
   return (
     <section className="cart-detail">
@@ -18,7 +17,7 @@ const CartDetail = () => {
         </header>
         <div className="cart-items-detail">
           {items.length >= 1 ? (
-            items.map((item) => <CartItemDetailed {...item} />)
+            items.map((item) => <CartItemDetailed {...item} key={item.id} />)
           ) : (
             <p>Empty</p>
           )}
@@ -27,7 +26,7 @@ const CartDetail = () => {
         <div>
           <div className="flex-group space-between">
             <p className="fs-500">Subtotal:</p>
-            <p className="ms-3">${getTotal(items).toFixed(2)}</p>
+            <p className="ms-3">${subtotal.toFixed(2)}</p>
           </div>
         </div>
         <button
