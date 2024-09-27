@@ -15,20 +15,23 @@ const CategoriesScroller: React.FC<CategoriesScrollerProps> = ({
   const { data, isFetching, isSuccess } = useGetCategoriesQuery(null);
 
   let body;
+  console.log(data);
   if (isFetching) {
     return <Status status="loader" />;
-  } else if (isSuccess) {
-    body = data.map((cate: string) => (
+  } else if (isSuccess && data.length > 1) {
+    body = data.map((item: { name: string }, idx: number) => (
       <div
-        className={`category ${selected === cate ? "selected" : ""}`}
+        className={`category ${selected === item.name ? "selected" : ""}`}
         onClick={() => {
-          navigate(`/category/${cate}`);
+          navigate(`/category/${item.name}`);
         }}
-        key={cate}
+        key={idx}
       >
-        {cate}
+        {item.name}
       </div>
     ));
+  } else {
+    return <div>There is some wrong, try again later.</div>;
   }
 
   return <Scroller>{body}</Scroller>;
